@@ -15,6 +15,8 @@ class MasterViewController: UITableViewController {
     var objects = [AnyObject]()
     var searchResults = SearchResults()
     var myLocation : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 103.7352615, longitude: 103.7352615)
+    
+    
 
 
     override func viewDidLoad() {
@@ -22,8 +24,8 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
-
+        //self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        //self.navigationItem.backBarButtonItem = self.back
         //let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         //self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
@@ -42,6 +44,12 @@ class MasterViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func back(){
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewControllerWithIdentifier("dineSearch") as! DineSearchViewController
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     // MARK: - Segues

@@ -83,13 +83,15 @@ class DineSearchViewController: UIViewController , CLLocationManagerDelegate,NSU
 
             
             let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewControllerWithIdentifier("master") as! UITableViewController
-            let toViewController1:MasterViewController =
-                vc as! MasterViewController
+            let vc = sb.instantiateViewControllerWithIdentifier("dineSearchNavController") as! UINavigationController
             
-            //toViewController1.searchResults = self.searchResults;
-            //toViewController1.myLocation = myLocation
-            //self.presentViewController(vc, animated: true, completion: nil)
+            
+            let toViewController1:MasterViewController =
+                vc.topViewController as! MasterViewController
+            
+            toViewController1.searchResults = self.searchResults;
+            toViewController1.myLocation = myLocation
+            self.presentViewController(vc, animated: true, completion: nil)
         }
         else {
             print("Error %@",error!.userInfo);
@@ -100,8 +102,7 @@ class DineSearchViewController: UIViewController , CLLocationManagerDelegate,NSU
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let navigationController = segue.destinationViewController as! UINavigationController
-        let masterViewController = navigationController.topViewController as! MasterViewController
+        let masterViewController = segue.destinationViewController as! MasterViewController
         masterViewController.searchResults = self.searchResults
         masterViewController.myLocation = myLocation
     }
@@ -130,13 +131,13 @@ class DineSearchViewController: UIViewController , CLLocationManagerDelegate,NSU
                     searchResults.vicinityArray.addObject("")
                 }
                 var photo_ref = ""
-                /*if(item["photos"] != nil){
+                if(item["photos"] != nil){
                     if(item["photos"]![0] != nil){
                         if(item["photos"]![0]!["photo_reference"] != nil){
                             photo_ref = item["photos"]![0]!["photo_reference"] as! String
                         }
                     }
-                }*/
+                }
                 searchResults.photoArray.addObject(photo_ref)
                 let storeCoodinate = item["geometry"]!["location"] as! [String: AnyObject]
                 let lat = storeCoodinate["lat"]

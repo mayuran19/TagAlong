@@ -15,6 +15,7 @@
 		34B97E5E1CD7A79700034472 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B97E5D1CD7A79700034472 /* ProfileViewController.swift */; };
 		34B97E611CD7A7C800034472 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B97E5F1CD7A7C800034472 /* FBSDKCoreKit.framework */; };
 		34B97E621CD7A7C800034472 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B97E601CD7A7C800034472 /* FBSDKLoginKit.framework */; };
+		34B97E651CD7AB6C00034472 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B97E641CD7AB6C00034472 /* LoginViewController.swift */; };
 		34E945C71CD74E95001DEEFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E945C61CD74E95001DEEFB /* AppDelegate.swift */; };
 		34E945C91CD74E95001DEEFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E945C81CD74E95001DEEFB /* ViewController.swift */; };
 		34E945CC1CD74E95001DEEFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34E945CA1CD74E95001DEEFB /* Main.storyboard */; };
@@ -22,6 +23,13 @@
 		34E945D11CD74E95001DEEFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34E945CF1CD74E95001DEEFB /* LaunchScreen.storyboard */; };
 		34E945DC1CD74E95001DEEFB /* TagAlongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E945DB1CD74E95001DEEFB /* TagAlongTests.swift */; };
 		34E945E71CD74E95001DEEFB /* TagAlongUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E945E61CD74E95001DEEFB /* TagAlongUITests.swift */; };
+		34F9E5771CD905DE0008D9C3 /* CompanionSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F9E5741CD905DE0008D9C3 /* CompanionSearchViewController.swift */; };
+		34F9E5781CD905DE0008D9C3 /* CompanionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F9E5751CD905DE0008D9C3 /* CompanionList.swift */; };
+		34F9E5791CD905DE0008D9C3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F9E5761CD905DE0008D9C3 /* User.swift */; };
+		34F9E5821CD90B9E0008D9C3 /* SeeAndDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F9E57E1CD90B9E0008D9C3 /* SeeAndDo.swift */; };
+		34F9E5841CD90B9E0008D9C3 /* SeeAndDoPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F9E5801CD90B9E0008D9C3 /* SeeAndDoPlacesViewController.swift */; };
+		34F9E58B1CD90BFA0008D9C3 /* StayDineSeeDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F9E5871CD90BFA0008D9C3 /* StayDineSeeDo.swift */; };
+		34F9E58D1CD90BFA0008D9C3 /* SeeAndDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F9E5891CD90BFA0008D9C3 /* SeeAndDoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +58,8 @@
 		34B97E5D1CD7A79700034472 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		34B97E5F1CD7A7C800034472 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		34B97E601CD7A7C800034472 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		34B97E631CD7A94D00034472 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		34B97E641CD7AB6C00034472 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		34E945C31CD74E95001DEEFB /* TagAlong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TagAlong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E945C61CD74E95001DEEFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34E945C81CD74E95001DEEFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +73,13 @@
 		34E945E21CD74E95001DEEFB /* TagAlongUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TagAlongUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E945E61CD74E95001DEEFB /* TagAlongUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagAlongUITests.swift; sourceTree = "<group>"; };
 		34E945E81CD74E95001DEEFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34F9E5741CD905DE0008D9C3 /* CompanionSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanionSearchViewController.swift; sourceTree = "<group>"; };
+		34F9E5751CD905DE0008D9C3 /* CompanionList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanionList.swift; sourceTree = "<group>"; };
+		34F9E5761CD905DE0008D9C3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		34F9E57E1CD90B9E0008D9C3 /* SeeAndDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeAndDo.swift; sourceTree = "<group>"; };
+		34F9E5801CD90B9E0008D9C3 /* SeeAndDoPlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeAndDoPlacesViewController.swift; sourceTree = "<group>"; };
+		34F9E5871CD90BFA0008D9C3 /* StayDineSeeDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StayDineSeeDo.swift; sourceTree = "<group>"; };
+		34F9E5891CD90BFA0008D9C3 /* SeeAndDoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeAndDoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +134,16 @@
 		34E945C51CD74E95001DEEFB /* TagAlong */ = {
 			isa = PBXGroup;
 			children = (
+				34F9E5871CD90BFA0008D9C3 /* StayDineSeeDo.swift */,
+				34F9E5891CD90BFA0008D9C3 /* SeeAndDoTableViewCell.swift */,
+				34F9E57E1CD90B9E0008D9C3 /* SeeAndDo.swift */,
+				34F9E5801CD90B9E0008D9C3 /* SeeAndDoPlacesViewController.swift */,
+				34F9E5741CD905DE0008D9C3 /* CompanionSearchViewController.swift */,
+				34F9E5751CD905DE0008D9C3 /* CompanionList.swift */,
+				34F9E5761CD905DE0008D9C3 /* User.swift */,
+				34B97E641CD7AB6C00034472 /* LoginViewController.swift */,
 				34B97E5D1CD7A79700034472 /* ProfileViewController.swift */,
+				34B97E631CD7A94D00034472 /* Bridging-Header.h */,
 				3487885E1CD75723002A68D7 /* DetailViewController.swift */,
 				3487885F1CD75723002A68D7 /* DineSearchViewController.swift */,
 				348788601CD75723002A68D7 /* MasterViewController.swift */,
@@ -219,6 +245,7 @@
 				TargetAttributes = {
 					34E945C21CD74E95001DEEFB = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = T97FJX936S;
 					};
 					34E945D61CD74E95001DEEFB = {
 						CreatedOnToolsVersion = 7.3;
@@ -284,12 +311,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34B97E651CD7AB6C00034472 /* LoginViewController.swift in Sources */,
+				34F9E5841CD90B9E0008D9C3 /* SeeAndDoPlacesViewController.swift in Sources */,
+				34F9E5771CD905DE0008D9C3 /* CompanionSearchViewController.swift in Sources */,
 				348788651CD75723002A68D7 /* MasterViewController.swift in Sources */,
 				348788631CD75723002A68D7 /* DetailViewController.swift in Sources */,
+				34F9E5821CD90B9E0008D9C3 /* SeeAndDo.swift in Sources */,
+				34F9E58B1CD90BFA0008D9C3 /* StayDineSeeDo.swift in Sources */,
 				34E945C91CD74E95001DEEFB /* ViewController.swift in Sources */,
 				348788641CD75723002A68D7 /* DineSearchViewController.swift in Sources */,
 				348788661CD75723002A68D7 /* SearchResults.swift in Sources */,
 				34E945C71CD74E95001DEEFB /* AppDelegate.swift in Sources */,
+				34F9E5791CD905DE0008D9C3 /* User.swift in Sources */,
+				34F9E58D1CD90BFA0008D9C3 /* SeeAndDoTableViewCell.swift in Sources */,
+				34F9E5781CD905DE0008D9C3 /* CompanionList.swift in Sources */,
 				34B97E5E1CD7A79700034472 /* ProfileViewController.swift in Sources */,
 				348788671CD75723002A68D7 /* SimpleTableCell.swift in Sources */,
 			);
@@ -364,6 +399,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: mayuran19@gmail.com (N396M639MF)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -409,6 +445,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: mayuran19@gmail.com (N396M639MF)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -434,6 +471,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -442,7 +480,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nus.team.pt4.tagalong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "aa077c0f-d06b-48e7-9bf3-1dd19fc5964a";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TagAlong/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -451,6 +490,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -459,7 +499,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nus.team.pt4.tagalong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "aa077c0f-d06b-48e7-9bf3-1dd19fc5964a";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TagAlong/Bridging-Header.h";
 			};
 			name = Release;
 		};

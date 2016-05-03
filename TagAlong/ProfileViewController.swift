@@ -11,7 +11,8 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var firstName: UILabel!
+    @IBOutlet weak var lastName: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundmain.png")!)
@@ -37,7 +38,8 @@ class ProfileViewController: UIViewController {
             
             let firstName = result["first_name"] as? String
             let lastName = result["last_name"] as? String
-            self.nameLabel.text = "\(firstName!) \(lastName!)"
+            self.firstName.text = firstName
+            self.lastName.text = lastName
 
             let imageURL = NSURL(string: result["picture"]!!["data"]!!["url"]!! as! String)
             let imagedData = NSData(contentsOfURL: imageURL!)!
