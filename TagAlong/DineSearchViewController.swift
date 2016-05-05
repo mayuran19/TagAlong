@@ -132,11 +132,11 @@ class DineSearchViewController: UIViewController , CLLocationManagerDelegate,NSU
                 }
                 var photo_ref = ""
                 if(item["photos"] != nil){
-                    if(item["photos"]![0] != nil){
-                        if(item["photos"]![0]!["photo_reference"] != nil){
-                            photo_ref = item["photos"]![0]!["photo_reference"] as! String
-                        }
-                    }
+//                    if(item["photos"]![0] != nil){
+//                        if(item["photos"]![0]!["photo_reference"] != nil){
+//                            photo_ref = item["photos"]![0]!["photo_reference"] as! String
+//                        }
+//                    }
                 }
                 searchResults.photoArray.addObject(photo_ref)
                 let storeCoodinate = item["geometry"]!["location"] as! [String: AnyObject]

@@ -30,6 +30,7 @@
 		34F9E5841CD90B9E0008D9C3 /* SeeAndDoPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F9E5801CD90B9E0008D9C3 /* SeeAndDoPlacesViewController.swift */; };
 		34F9E58B1CD90BFA0008D9C3 /* StayDineSeeDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F9E5871CD90BFA0008D9C3 /* StayDineSeeDo.swift */; };
 		34F9E58D1CD90BFA0008D9C3 /* SeeAndDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F9E5891CD90BFA0008D9C3 /* SeeAndDoTableViewCell.swift */; };
+		34F9E58F1CD918DB0008D9C3 /* SeeAndDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F9E58E1CD918DB0008D9C3 /* SeeAndDoTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		34F9E5801CD90B9E0008D9C3 /* SeeAndDoPlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeAndDoPlacesViewController.swift; sourceTree = "<group>"; };
 		34F9E5871CD90BFA0008D9C3 /* StayDineSeeDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StayDineSeeDo.swift; sourceTree = "<group>"; };
 		34F9E5891CD90BFA0008D9C3 /* SeeAndDoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeAndDoTableViewCell.swift; sourceTree = "<group>"; };
+		34F9E58E1CD918DB0008D9C3 /* SeeAndDoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeAndDoTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				34E945CD1CD74E95001DEEFB /* Assets.xcassets */,
 				34E945CF1CD74E95001DEEFB /* LaunchScreen.storyboard */,
 				34E945D21CD74E95001DEEFB /* Info.plist */,
+				34F9E58E1CD918DB0008D9C3 /* SeeAndDoTableViewController.swift */,
 			);
 			path = TagAlong;
 			sourceTree = "<group>";
@@ -245,7 +248,12 @@
 				TargetAttributes = {
 					34E945C21CD74E95001DEEFB = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = T97FJX936S;
+						DevelopmentTeam = 2BD8J7UAK9;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					34E945D61CD74E95001DEEFB = {
 						CreatedOnToolsVersion = 7.3;
@@ -325,6 +333,7 @@
 				34F9E5791CD905DE0008D9C3 /* User.swift in Sources */,
 				34F9E58D1CD90BFA0008D9C3 /* SeeAndDoTableViewCell.swift in Sources */,
 				34F9E5781CD905DE0008D9C3 /* CompanionList.swift in Sources */,
+				34F9E58F1CD918DB0008D9C3 /* SeeAndDoTableViewController.swift in Sources */,
 				34B97E5E1CD7A79700034472 /* ProfileViewController.swift in Sources */,
 				348788671CD75723002A68D7 /* SimpleTableCell.swift in Sources */,
 			);
