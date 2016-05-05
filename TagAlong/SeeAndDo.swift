@@ -22,8 +22,8 @@ class SeeAndDo: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
-        let nib = UINib(nibName: "SeeAndDoTableViewCell", bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: "cell")
+        //let nib = UINib(nibName: "SeeAndDoTableViewCell", bundle: nil)
+        //tableView.registerNib(nib, forCellReuseIdentifier: "cell")
         
         //init the array
         placePreference.append("NATURE")

@@ -56,7 +56,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
                 <exit id="zXx-cg-xTq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2433" y="1716"/>
+            <point key="canvasLocation" x="2965" y="1716"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="B4A-iN-PXg">
@@ -81,7 +81,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iz2-46-QFv" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="40" y="253.5" width="240" height="60"/>
+                                <rect key="frame" x="40" y="254" width="240" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="5ee-tr-XM7"/>
@@ -111,7 +111,7 @@
         <!--Dine Search View Controller-->
         <scene sceneID="9eq-yp-aqE">
             <objects>
-                <viewController id="clA-1P-k7U" customClass="DineSearchViewController" customModule="TagAlong" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="dineSearch" id="clA-1P-k7U" customClass="DineSearchViewController" customModule="TagAlong" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zxe-RK-IMx"/>
                         <viewControllerLayoutGuide type="bottom" id="K8b-uC-MeU"/>
@@ -142,7 +142,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="7bK-jq-Zjz" kind="push" id="ikG-9J-dtZ"/>
+                                    <action selector="searchRest" destination="clA-1P-k7U" eventType="touchUpInside" id="Zud-Ar-NRt"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DINE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dF-yL-nYX">
@@ -267,7 +267,18 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="MUGU" id="sNp-hk-Uav"/>
+                    <navigationItem key="navigationItem" title="Locations" id="sNp-hk-Uav">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="12D-zf-kQN">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Eb9-23-hie">
+                                <rect key="frame" x="16" y="7" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="back" destination="7bK-jq-Zjz" eventType="touchUpInside" id="San-AV-XRh"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uI9-nn-2tc">
@@ -278,7 +289,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </objects>
-            <point key="canvasLocation" x="1396" y="1716"/>
+            <point key="canvasLocation" x="1928" y="1716"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NCO-gL-q9g">
@@ -296,7 +307,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tMO-bm-45H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1896" y="1716"/>
+            <point key="canvasLocation" x="2428" y="1716"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -311,7 +322,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PROFILE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnS-BN-sBQ">
-                                <rect key="frame" x="117" y="30" width="85.5" height="27"/>
+                                <rect key="frame" x="117" y="30" width="86" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -324,13 +335,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHERRY VONG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="j8y-s9-csD">
-                                <rect key="frame" x="34" y="262" width="251.5" height="43"/>
+                                <rect key="frame" x="34" y="262" width="252" height="43"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Describe yourself" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrh-HS-PQw">
-                                <rect key="frame" x="75" y="378" width="171" height="26.5"/>
+                                <rect key="frame" x="75" y="378" width="171" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -358,7 +369,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHERRY VONG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MMR-IW-dfo">
-                                <rect key="frame" x="34.5" y="315" width="251.5" height="43"/>
+                                <rect key="frame" x="35" y="315" width="251" height="43"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -496,7 +507,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ir-Wx-flJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1089" y="805"/>
+            <point key="canvasLocation" x="1063" y="805"/>
         </scene>
         <!--See And Do-->
         <scene sceneID="gVs-iD-sn5">
@@ -558,7 +569,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JcU-Zc-caQ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -728,6 +739,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nNW-Er-p6R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-49" y="359"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cXH-tg-avW">
+            <objects>
+                <navigationController storyboardIdentifier="dineSearchNavController" automaticallyAdjustsScrollViewInsets="NO" id="LcQ-CF-zJQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ori-UN-aVb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7bK-jq-Zjz" kind="relationship" relationship="rootViewController" id="39k-5t-NKS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vMJ-4f-vVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1396" y="1716"/>
         </scene>
     </scenes>
     <resources>

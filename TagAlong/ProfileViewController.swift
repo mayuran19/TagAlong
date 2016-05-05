@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController {
         cycleImageView()
         updateProfileDetails()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
