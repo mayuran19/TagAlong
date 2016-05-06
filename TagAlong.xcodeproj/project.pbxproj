@@ -16,6 +16,8 @@
 		34B97E611CD7A7C800034472 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B97E5F1CD7A7C800034472 /* FBSDKCoreKit.framework */; };
 		34B97E621CD7A7C800034472 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B97E601CD7A7C800034472 /* FBSDKLoginKit.framework */; };
 		34B97E651CD7AB6C00034472 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B97E641CD7AB6C00034472 /* LoginViewController.swift */; };
+		34E2BDC41CDBA9CC00097D4C /* SeeAndDoSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E2BDC31CDBA9CC00097D4C /* SeeAndDoSearchResult.swift */; };
+		34E2BDC61CDCEC4C00097D4C /* PlacesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E2BDC51CDCEC4C00097D4C /* PlacesTableViewCell.swift */; };
 		34E945C71CD74E95001DEEFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E945C61CD74E95001DEEFB /* AppDelegate.swift */; };
 		34E945C91CD74E95001DEEFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E945C81CD74E95001DEEFB /* ViewController.swift */; };
 		34E945CC1CD74E95001DEEFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34E945CA1CD74E95001DEEFB /* Main.storyboard */; };
@@ -61,6 +63,8 @@
 		34B97E601CD7A7C800034472 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		34B97E631CD7A94D00034472 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		34B97E641CD7AB6C00034472 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		34E2BDC31CDBA9CC00097D4C /* SeeAndDoSearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeAndDoSearchResult.swift; sourceTree = "<group>"; };
+		34E2BDC51CDCEC4C00097D4C /* PlacesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesTableViewCell.swift; sourceTree = "<group>"; };
 		34E945C31CD74E95001DEEFB /* TagAlong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TagAlong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E945C61CD74E95001DEEFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34E945C81CD74E95001DEEFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 				34E945CF1CD74E95001DEEFB /* LaunchScreen.storyboard */,
 				34E945D21CD74E95001DEEFB /* Info.plist */,
 				34F9E58E1CD918DB0008D9C3 /* SeeAndDoTableViewController.swift */,
+				34E2BDC31CDBA9CC00097D4C /* SeeAndDoSearchResult.swift */,
+				34E2BDC51CDCEC4C00097D4C /* PlacesTableViewCell.swift */,
 			);
 			path = TagAlong;
 			sourceTree = "<group>";
@@ -324,6 +330,7 @@
 				34F9E5771CD905DE0008D9C3 /* CompanionSearchViewController.swift in Sources */,
 				348788651CD75723002A68D7 /* MasterViewController.swift in Sources */,
 				348788631CD75723002A68D7 /* DetailViewController.swift in Sources */,
+				34E2BDC41CDBA9CC00097D4C /* SeeAndDoSearchResult.swift in Sources */,
 				34F9E5821CD90B9E0008D9C3 /* SeeAndDo.swift in Sources */,
 				34F9E58B1CD90BFA0008D9C3 /* StayDineSeeDo.swift in Sources */,
 				34E945C91CD74E95001DEEFB /* ViewController.swift in Sources */,
@@ -331,6 +338,7 @@
 				348788661CD75723002A68D7 /* SearchResults.swift in Sources */,
 				34E945C71CD74E95001DEEFB /* AppDelegate.swift in Sources */,
 				34F9E5791CD905DE0008D9C3 /* User.swift in Sources */,
+				34E2BDC61CDCEC4C00097D4C /* PlacesTableViewCell.swift in Sources */,
 				34F9E58D1CD90BFA0008D9C3 /* SeeAndDoTableViewCell.swift in Sources */,
 				34F9E5781CD905DE0008D9C3 /* CompanionList.swift in Sources */,
 				34F9E58F1CD918DB0008D9C3 /* SeeAndDoTableViewController.swift in Sources */,

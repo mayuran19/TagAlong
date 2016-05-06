@@ -56,6 +56,11 @@ class SeeAndDo: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let seeAndDoTableViewController = segue.destinationViewController as! SeeAndDoTableViewController
+        seeAndDoTableViewController.selectedType = selectedIndex
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
