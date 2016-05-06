@@ -201,4 +201,13 @@ class SeeAndDoTableViewController : UIViewController, UITableViewDelegate, UITab
     func roundToTen(x : Double) -> Int{
         return 10 * Int(round(x/10.0))
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            let detailController = segue.destinationViewController as! PlaceMapViewController
+            detailController.myHomeLocation = currentLocation
+            detailController.restLocation = CLLocationCoordinate2D(latitude: searchResult.latArray[indexPath.row] as! Double, longitude: searchResult.lngArray[indexPath.row] as! Double)
+            detailController.searchLocation = searchResult.searchLocation
+        }
+    }
 }

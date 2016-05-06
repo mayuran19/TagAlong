@@ -641,11 +641,11 @@
                                 <rect key="frame" x="0.0" y="134" width="320" height="434"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="uRZ-Hy-ILn" customClass="PlacesTableViewCell" customModule="TagAlong" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="uRZ-Hy-ILn" customClass="PlacesTableViewCell" customModule="TagAlong" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uRZ-Hy-ILn" id="1LF-bH-7B1">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PqR-8m-ThS">
@@ -657,7 +657,7 @@
                                                         <constraint firstAttribute="width" constant="50" id="wTx-gf-jM6"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysP-D4-hKb">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysP-D4-hKb">
                                                     <rect key="frame" x="55" y="0.0" width="265" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -679,6 +679,7 @@
                                         <connections>
                                             <outlet property="placeImage" destination="PqR-8m-ThS" id="fEW-dq-ReV"/>
                                             <outlet property="placeName" destination="ysP-D4-hKb" id="GXO-iZ-r5O"/>
+                                            <segue destination="ntb-CY-yJh" kind="push" id="g3z-ru-Q8W"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -705,6 +706,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fs6-Dn-uxv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2210" y="805"/>
+        </scene>
+        <!--Place Map View Controller-->
+        <scene sceneID="mm2-ks-GI4">
+            <objects>
+                <viewController id="ntb-CY-yJh" customClass="PlaceMapViewController" customModule="TagAlong" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jt6-fg-f42"/>
+                        <viewControllerLayoutGuide type="bottom" id="SO9-Hy-8Xj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cV4-a6-GI3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YhI-Ws-1cD">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="YhI-Ws-1cD" secondAttribute="trailing" id="AIn-2a-8tO"/>
+                            <constraint firstItem="YhI-Ws-1cD" firstAttribute="top" secondItem="Jt6-fg-f42" secondAttribute="bottom" id="N8K-UJ-7OV"/>
+                            <constraint firstItem="SO9-Hy-8Xj" firstAttribute="top" secondItem="YhI-Ws-1cD" secondAttribute="bottom" id="lYT-KP-8Me"/>
+                            <constraint firstItem="YhI-Ws-1cD" firstAttribute="leading" secondItem="cV4-a6-GI3" secondAttribute="leading" id="sa0-SM-BMb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4pE-qT-Zly"/>
+                    <connections>
+                        <outlet property="mapView" destination="YhI-Ws-1cD" id="GNd-tu-Pbm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HXW-0m-0FM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2743" y="805"/>
         </scene>
         <!--Companion Search View Controller-->
         <scene sceneID="9YH-Db-Qu1">
