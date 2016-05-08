@@ -43,7 +43,7 @@ class DetailViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundmain.png")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "cell2.jpg")!)
         self.name.text = object
         let latDelta : CLLocationDegrees = 0.02
         let longDelta : CLLocationDegrees = 0.02
