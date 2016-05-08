@@ -11,4 +11,5 @@ import Foundation
 class PlacesTableViewCell:UITableViewCell{
     @IBOutlet weak var placeName: UILabel!
     @IBOutlet weak var placeImage: UIImageView!
+    @IBOutlet weak var vicinity: UILabel!
 }

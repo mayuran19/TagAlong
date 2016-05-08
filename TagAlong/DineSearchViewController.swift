@@ -132,7 +132,8 @@ class DineSearchViewController: UIViewController , CLLocationManagerDelegate,NSU
                 }
                 var photo_ref = ""
                 if(item["photos"] != nil){
-                    if(item["photos"]![0] != nil){
+                    let photosArray = item["photos"] as! NSArray
+                    if(photosArray.firstObject != nil){
                        if(item["photos"]![0]!["photo_reference"] != nil){
                            photo_ref = item["photos"]![0]!["photo_reference"] as! String
                       }

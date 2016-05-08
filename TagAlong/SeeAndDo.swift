@@ -21,9 +21,7 @@ class SeeAndDo: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
-        //let nib = UINib(nibName: "SeeAndDoTableViewCell", bundle: nil)
-        //tableView.registerNib(nib, forCellReuseIdentifier: "cell")
+        tableView.bounces = true
         
         //init the array
         placePreference.append("NATURE")
@@ -54,6 +52,18 @@ class SeeAndDo: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func searchButtonTapped(sender: AnyObject) {
         
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if(selectedIndex == nil){
+            let alertController = UIAlertController(title: "Error", message: "Select a category", preferredStyle: .Alert)
+            let cancelAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+            alertController.addAction(cancelAction)
+            presentViewController(alertController, animated: true, completion: nil)
+            return false
+        }else{
+            return true
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

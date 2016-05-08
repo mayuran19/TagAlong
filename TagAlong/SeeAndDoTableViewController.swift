@@ -28,6 +28,7 @@ class SeeAndDoTableViewController : UIViewController, UITableViewDelegate, UITab
     
     //Table view to hold the restapi resutls
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,9 @@ class SeeAndDoTableViewController : UIViewController, UITableViewDelegate, UITab
         //Tableview & Datasource
         tableView.delegate = self
         tableView.dataSource = self
+        activityIndicator.hidden = false
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
     }
     
     func searchPlaces(){
@@ -85,6 +89,7 @@ class SeeAndDoTableViewController : UIViewController, UITableViewDelegate, UITab
                 self.buffer.appendData(data!)
                 self.processResponse(self.buffer)
                 self.tableView.reloadData()
+                self.activityIndicator.stopAnimating()
             }
         }
         
@@ -102,6 +107,7 @@ class SeeAndDoTableViewController : UIViewController, UITableViewDelegate, UITab
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! PlacesTableViewCell
         
         cell.placeName.text = searchResult.nameArray[indexPath.row] as? String
+        cell.vicinity.text = searchResult.vicinityArray[indexPath.row] as? String
         //print(searchResults.photoArray[indexPath.row])
         if(searchResult.photoArray[indexPath.row] as! String != ""){
             var imageURL = "https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyAFs50MVWIeNs2PA8nYILqqn-eO7fys8G4&photoreference="
@@ -122,6 +128,7 @@ class SeeAndDoTableViewController : UIViewController, UITableViewDelegate, UITab
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations : [CLLocation]){
@@ -160,7 +167,8 @@ class SeeAndDoTableViewController : UIViewController, UITableViewDelegate, UITab
                 }
                 var photo_ref = ""
                 if(item["photos"] != nil){
-                    if(item["photos"]![0] != nil){
+                    let photosArray = item["photos"] as! NSArray
+                    if(photosArray.firstObject != nil){
                         if(item["photos"]![0]!["photo_reference"] != nil){
                             photo_ref = item["photos"]![0]!["photo_reference"] as! String
                         }
@@ -208,6 +216,7 @@ class SeeAndDoTableViewController : UIViewController, UITableViewDelegate, UITab
             detailController.myHomeLocation = currentLocation
             detailController.restLocation = CLLocationCoordinate2D(latitude: searchResult.latArray[indexPath.row] as! Double, longitude: searchResult.lngArray[indexPath.row] as! Double)
             detailController.searchLocation = searchResult.searchLocation
+            detailController.placeName = searchResult.nameArray[indexPath.row] as? String
         }
     }
 }

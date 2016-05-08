@@ -11,13 +11,13 @@ import MapKit
 import CoreLocation
 
 class PlaceMapViewController : UIViewController{
-    
+    @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     var myHomeLocation: CLLocationCoordinate2D?
     var restLocation: CLLocationCoordinate2D?
     var myHomePin = MKPointAnnotation()
     var restPin = MKPointAnnotation()
-    var object : String?
+    var placeName : String?
     var searchLocation : String?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,7 @@ class PlaceMapViewController : UIViewController{
         let latDelta : CLLocationDegrees = 0.02
         let longDelta : CLLocationDegrees = 0.02
         
+        placeLabel.text = placeName
         let theSpan:MKCoordinateSpan =
             MKCoordinateSpanMake(latDelta, longDelta)
         let myLocation : CLLocationCoordinate2D = myHomeLocation!
@@ -45,6 +46,7 @@ class PlaceMapViewController : UIViewController{
         self.mapView.addAnnotation(myHomePin)
         
         restPin.coordinate = restLocation!
+        restPin.title = placeName
         self.mapView.addAnnotation(restPin)
     }
 }
