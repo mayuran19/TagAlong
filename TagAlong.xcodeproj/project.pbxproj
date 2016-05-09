@@ -34,6 +34,12 @@
 		34F9E58B1CD90BFA0008D9C3 /* StayDineSeeDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F9E5871CD90BFA0008D9C3 /* StayDineSeeDo.swift */; };
 		34F9E58D1CD90BFA0008D9C3 /* SeeAndDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F9E5891CD90BFA0008D9C3 /* SeeAndDoTableViewCell.swift */; };
 		34F9E58F1CD918DB0008D9C3 /* SeeAndDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F9E58E1CD918DB0008D9C3 /* SeeAndDoTableViewController.swift */; };
+		34FFE7141CDF9DFB004190D1 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FFE7131CDF9DFB004190D1 /* LocationManager.swift */; };
+		34FFE7161CDFA63C004190D1 /* HotelSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FFE7151CDFA63C004190D1 /* HotelSearchViewController.swift */; };
+		34FFE7181CDFA743004190D1 /* UIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FFE7171CDFA743004190D1 /* UIManager.swift */; };
+		34FFE71A1CE0F023004190D1 /* HotelListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FFE7191CE0F023004190D1 /* HotelListTableViewController.swift */; };
+		34FFE71C1CE0F301004190D1 /* HotelSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FFE71B1CE0F301004190D1 /* HotelSearchResult.swift */; };
+		34FFE71E1CE0F452004190D1 /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FFE71D1CE0F452004190D1 /* CustomTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +94,12 @@
 		34F9E5871CD90BFA0008D9C3 /* StayDineSeeDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StayDineSeeDo.swift; sourceTree = "<group>"; };
 		34F9E5891CD90BFA0008D9C3 /* SeeAndDoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeAndDoTableViewCell.swift; sourceTree = "<group>"; };
 		34F9E58E1CD918DB0008D9C3 /* SeeAndDoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeAndDoTableViewController.swift; sourceTree = "<group>"; };
+		34FFE7131CDF9DFB004190D1 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		34FFE7151CDFA63C004190D1 /* HotelSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelSearchViewController.swift; sourceTree = "<group>"; };
+		34FFE7171CDFA743004190D1 /* UIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIManager.swift; sourceTree = "<group>"; };
+		34FFE7191CE0F023004190D1 /* HotelListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelListTableViewController.swift; sourceTree = "<group>"; };
+		34FFE71B1CE0F301004190D1 /* HotelSearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelSearchResult.swift; sourceTree = "<group>"; };
+		34FFE71D1CE0F452004190D1 /* CustomTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +154,8 @@
 		34E945C51CD74E95001DEEFB /* TagAlong */ = {
 			isa = PBXGroup;
 			children = (
+				34FFE71D1CE0F452004190D1 /* CustomTableCell.swift */,
+				34FFE7191CE0F023004190D1 /* HotelListTableViewController.swift */,
 				34F9E5871CD90BFA0008D9C3 /* StayDineSeeDo.swift */,
 				34F9E5891CD90BFA0008D9C3 /* SeeAndDoTableViewCell.swift */,
 				34F9E57E1CD90B9E0008D9C3 /* SeeAndDo.swift */,
@@ -167,6 +181,10 @@
 				34E2BDC31CDBA9CC00097D4C /* SeeAndDoSearchResult.swift */,
 				34E2BDC51CDCEC4C00097D4C /* PlacesTableViewCell.swift */,
 				34E2BDC71CDD057400097D4C /* PlaceMapViewController.swift */,
+				34FFE7131CDF9DFB004190D1 /* LocationManager.swift */,
+				34FFE7151CDFA63C004190D1 /* HotelSearchViewController.swift */,
+				34FFE7171CDFA743004190D1 /* UIManager.swift */,
+				34FFE71B1CE0F301004190D1 /* HotelSearchResult.swift */,
 			);
 			path = TagAlong;
 			sourceTree = "<group>";
@@ -339,12 +357,18 @@
 				34F9E58B1CD90BFA0008D9C3 /* StayDineSeeDo.swift in Sources */,
 				34E945C91CD74E95001DEEFB /* ViewController.swift in Sources */,
 				348788641CD75723002A68D7 /* DineSearchViewController.swift in Sources */,
+				34FFE71C1CE0F301004190D1 /* HotelSearchResult.swift in Sources */,
+				34FFE7181CDFA743004190D1 /* UIManager.swift in Sources */,
+				34FFE7161CDFA63C004190D1 /* HotelSearchViewController.swift in Sources */,
 				348788661CD75723002A68D7 /* SearchResults.swift in Sources */,
+				34FFE71E1CE0F452004190D1 /* CustomTableCell.swift in Sources */,
 				34E945C71CD74E95001DEEFB /* AppDelegate.swift in Sources */,
 				34F9E5791CD905DE0008D9C3 /* User.swift in Sources */,
 				34E2BDC61CDCEC4C00097D4C /* PlacesTableViewCell.swift in Sources */,
 				34F9E58D1CD90BFA0008D9C3 /* SeeAndDoTableViewCell.swift in Sources */,
 				34F9E5781CD905DE0008D9C3 /* CompanionList.swift in Sources */,
+				34FFE7141CDF9DFB004190D1 /* LocationManager.swift in Sources */,
+				34FFE71A1CE0F023004190D1 /* HotelListTableViewController.swift in Sources */,
 				34F9E58F1CD918DB0008D9C3 /* SeeAndDoTableViewController.swift in Sources */,
 				34B97E5E1CD7A79700034472 /* ProfileViewController.swift in Sources */,
 				348788671CD75723002A68D7 /* SimpleTableCell.swift in Sources */,
