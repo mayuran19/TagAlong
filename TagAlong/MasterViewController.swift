@@ -9,35 +9,69 @@
 import UIKit
 import CoreLocation
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController,NSURLSessionDataDelegate {
 
+    var buffer:NSMutableData!;
     var detailViewController: DetailViewController? = nil
     var objects = [AnyObject]()
     var searchResults = SearchResults()
     var myLocation : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 103.7352615, longitude: 103.7352615)
-    
-    
-
 
     override func viewDidLoad() {
-        print("111111111111111")
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.buffer = NSMutableData();
+        var urlString : String = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="
+        urlString += String(self.myLocation.latitude)
+        urlString += ","
+        urlString += String(self.myLocation.longitude)
+        urlString += "&radius=1000&types=restaurant&key=AIzaSyAFs50MVWIeNs2PA8nYILqqn-eO7fys8G4"
+        let url:NSURL = NSURL(string: urlString)!
+        print(url)
         
-        //self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        //self.navigationItem.backBarButtonItem = self.back
-        //let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
-        //self.navigationItem.rightBarButtonItem = addButton
+        let defaultConfigObject:NSURLSessionConfiguration =
+            NSURLSessionConfiguration.defaultSessionConfiguration();
+        let session:NSURLSession = NSURLSession(configuration: defaultConfigObject, delegate: self, delegateQueue: NSOperationQueue.mainQueue());
+        
+        session.dataTaskWithURL(url).resume()
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
 
     }
+    
+    func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didReceiveData data: NSData) {
+        print ("URLSession:dataTask:didReceiveData")
+        buffer.appendData(data)
+    }
+    
+    func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
+        if (error == nil) {
+            print ("Done with bytes " + String(buffer.length))
+            self.processResponse(buffer);
+            self.tableView.reloadData()
+            
+            /*let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewControllerWithIdentifier("dineSearchNavController") as! UINavigationController
+            
+            
+            let toViewController1:MasterViewController =
+                vc.topViewController as! MasterViewController
+            
+            toViewController1.searchResults = self.searchResults;
+            toViewController1.myLocation = myLocation
+            self.presentViewController(vc, animated: true, completion: nil)*/
+        }
+        else {
+            print("Error %@",error!.userInfo);
+            print("Error description %@", error!.localizedDescription);
+            print("Error domain %@", error!.domain);
+        }
+        
+    }
 
     override func viewWillAppear(animated: Bool) {
         print("viewWillAppear")
-        //self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         super.viewWillAppear(animated)
     }
 
@@ -83,10 +117,10 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //print("Cell..",indexPath.row)
+        print("Cell..",indexPath.row)
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! SimpleTableCell
         
-        cell.name.text = searchResults.nameArray[indexPath.row] as? String
+       cell.name.text = searchResults.nameArray[indexPath.row] as? String
         cell.address.text = searchResults.vicinityArray[indexPath.row] as? String
         //print(searchResults.photoArray[indexPath.row])
         if(searchResults.photoArray[indexPath.row] as! String != ""){
@@ -103,7 +137,7 @@ class MasterViewController: UITableViewController {
         if(searchResults.isOpenArray[indexPath.row] as! NSObject == 1){
             cell.status.text = "Open now"
         }
-        cell.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundmain.png")!)
+        cell.backgroundColor = UIColor(patternImage: UIImage(named: "cell2.jpg")!)
 
         //let object = names[indexPath.row] as! NSString
         //cell.textLabel!.text = searchResults.nameArray[indexPath.row] as! String
@@ -122,6 +156,72 @@ class MasterViewController: UITableViewController {
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
+    }
+    func processResponse(data:NSData) {
+        do
+        {
+            let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! [String: AnyObject]
+            //print(json)
+            let items = json["results"] as? [[String: AnyObject]]
+            
+            for item in items!
+            {
+                if let name = item["name"] as? String
+                {
+                    searchResults.nameArray.addObject(name)
+                    print("Name:: ", name)
+                }
+                
+                if let vicinity = item["vicinity"] as? String
+                {
+                    searchResults.vicinityArray.addObject(vicinity)
+                    print("Vicinity:: ",vicinity)
+                } else {
+                    searchResults.vicinityArray.addObject("")
+                }
+                var photo_ref = ""
+                if(item["photos"] != nil){
+                    let photosArray = item["photos"] as! NSArray
+                    if(photosArray.firstObject != nil){
+                        if(item["photos"]![0]!["photo_reference"] != nil){
+                            photo_ref = item["photos"]![0]!["photo_reference"] as! String
+                        }
+                    }
+                }
+                searchResults.photoArray.addObject(photo_ref)
+                let storeCoodinate = item["geometry"]!["location"] as! [String: AnyObject]
+                let lat = storeCoodinate["lat"]
+                let lng = storeCoodinate["lng"]
+                searchResults.latArray.addObject(lat!)
+                searchResults.lngArray.addObject(lng!)
+                
+                let userLocation : CLLocation = CLLocation(latitude: myLocation.latitude , longitude: myLocation.longitude)
+                let priceLocation:CLLocation = CLLocation(latitude: (lat?.doubleValue)!, longitude: (lng?.doubleValue)!)
+                let meters : CLLocationDistance = userLocation.distanceFromLocation(priceLocation)
+                
+                print("Distancein meters:: ",meters)
+                let meterStr = String(roundToTen(meters)) + " m"
+                searchResults.distanceArray.addObject(meterStr)
+                
+                let open_now = 0
+                let opening_hours = item["opening_hours"]
+                if (opening_hours != nil){
+                    var open_now = opening_hours!["open_now"]
+                }
+                print("open_now:: ",item["open_now"])
+                searchResults.isOpenArray.addObject((open_now))
+            }
+            NSNotificationCenter.defaultCenter().postNotificationName("switchResultNotification", object: nil)
+        }
+        catch let error as NSError
+        {
+            print ("Failed to load: \(error.localizedDescription)")
+        }
+        
+    }
+    
+    func roundToTen(x : Double) -> Int{
+        return 10 * Int(round(x/10.0))
     }
 
     @IBAction func cancel(segue:UIStoryboardSegue) {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class ProfileViewController: UIViewController {
 
@@ -15,7 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var lastName: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundmain.png")!)
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpg")!)
         cycleImageView()
         updateProfileDetails()
     }
@@ -51,6 +52,40 @@ class ProfileViewController: UIViewController {
         profileImageView.layer.borderWidth = 1
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
         profileImageView.clipsToBounds = true
+    }
+    
+    @IBAction func faceBook(){
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+            let fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            fbShare.addImage(UIImage(named: "Singapore.png"))
+            
+            self.presentViewController(fbShare, animated: true, completion: nil)
+            
+        } else {
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    
+    @IBAction func twitter(){
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
+            
+            let tweetShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            tweetShare.addImage(UIImage(named: "Singapore.png"))
+            
+            self.presentViewController(tweetShare, animated: true, completion: nil)
+            
+        } else {
+            
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to tweet.", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
 
 }
