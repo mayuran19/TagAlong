@@ -64,7 +64,8 @@ class DineSearchViewController: UIViewController , CLLocationManagerDelegate{
         let navController = segue.destinationViewController as! UINavigationController
         let masterViewController = navController.topViewController as! MasterViewController
         //masterViewController.searchResults = self.searchResults
-        masterViewController.myLocation = myLocation    }
+        masterViewController.myLocation = myLocation
+    }
     
     
     

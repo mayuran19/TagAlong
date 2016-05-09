@@ -117,10 +117,10 @@ class MasterViewController: UITableViewController,NSURLSessionDataDelegate {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //print("Cell..",indexPath.row)
+        print("Cell..",indexPath.row)
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! SimpleTableCell
         
-        cell.name.text = searchResults.nameArray[indexPath.row] as? String
+       cell.name.text = searchResults.nameArray[indexPath.row] as? String
         cell.address.text = searchResults.vicinityArray[indexPath.row] as? String
         //print(searchResults.photoArray[indexPath.row])
         if(searchResults.photoArray[indexPath.row] as! String != ""){
