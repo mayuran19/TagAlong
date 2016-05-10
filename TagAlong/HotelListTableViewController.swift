@@ -11,8 +11,14 @@ import UIKit
 import CoreLocation
 class HotelListTableViewController : UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
     //variables from previous scene
-    var buffer:NSMutableData!;
+    var buffer:NSMutableData!
     var locationManager :CLLocationManager!
+    var location :CLLocation!
+    var checkinDate :String!
+    var checkoutDate :String!
+    var guests :String!
+    var rooms :String!
+    
     @IBOutlet weak var tableView: UITableView!
     var myLocation : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 103.7352615, longitude: 103.7352615)
     var searchResults = HotelSearchResult()
@@ -84,7 +90,7 @@ class HotelListTableViewController : UIViewController, CLLocationManagerDelegate
                 }
                 
             }
-            let url:NSURL = NSURL(string: "http://partners.api.skyscanner.net/apiservices/hotels/liveprices/v2/SG/SGD/en-US/27539733/2016-12-04/2016-12-10/2/1?apiKey=prtl6749387986743898559646983194")!
+            let url:NSURL = NSURL(string: "http://partners.api.skyscanner.net/apiservices/hotels/liveprices/v2/SG/SGD/en-US/27539733/\(checkinDate)/\(checkoutDate)/\(guests)/\(rooms)?apiKey=prtl6749387986743898559646983194")!
             let request = NSMutableURLRequest(URL:url)
             request.HTTPMethod="GET"
             request.setValue("application/json", forHTTPHeaderField: "accept")

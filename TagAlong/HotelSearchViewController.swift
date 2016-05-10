@@ -14,7 +14,7 @@ class HotelSearchViewController : UIViewController, CLLocationManagerDelegate, U
     var currentLocation :CLLocation!
     
     var currentActiveTextField: UITextField!
-
+    
     
     //Outlet variables
     @IBOutlet weak var locationTextField: UITextField!
@@ -37,6 +37,9 @@ class HotelSearchViewController : UIViewController, CLLocationManagerDelegate, U
         //Date delegates
         checkinTextField.delegate = self
         checkoutTextField.delegate = self
+        locationTextField.delegate = self
+        guestTextField.delegate = self
+        roomsTextField.delegate = self
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -44,34 +47,47 @@ class HotelSearchViewController : UIViewController, CLLocationManagerDelegate, U
         if (location == nil) {
             location = currentLocation
         }
-        print(location)
+        let hotelListTableViewController = segue.destinationViewController as! HotelListTableViewController
+        hotelListTableViewController.location = location
+        hotelListTableViewController.checkinDate = checkinTextField.text
+        hotelListTableViewController.checkoutDate = checkoutTextField.text
+        hotelListTableViewController.guests = guestTextField.text
+        hotelListTableViewController.rooms = roomsTextField.text
     }
     
     func textFieldDidBeginEditing(textField: UITextField){
-        let datePicker = UIDatePicker()
-        let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.Default
-        toolBar.translucent = true
-        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
-        toolBar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(HotelSearchViewController.doneDateSelection(_:)))
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(HotelSearchViewController.calcelDateSelection(_:)))
-        toolBar.setItems([cancelButton, doneButton], animated: false)
-        toolBar.userInteractionEnabled = true
-
-        textField.inputAccessoryView = toolBar
-        
-        datePicker.datePickerMode = .Date
-        if(textField == checkinTextField){
-            currentActiveTextField = checkinTextField
-            checkinTextField.inputView = datePicker
-            datePicker.addTarget(self, action: #selector(HotelSearchViewController.checkinDateChanged(_:)), forControlEvents: .ValueChanged)
-        }else if(textField == checkoutTextField){
-            currentActiveTextField = checkoutTextField
-            checkoutTextField.inputView = datePicker
-            datePicker.addTarget(self, action: #selector(HotelSearchViewController.checkoutDateChanged(_:)), forControlEvents: .ValueChanged)
+        if(textField == checkinTextField || textField == checkoutTextField){
+            let datePicker = UIDatePicker()
+            let toolBar = UIToolbar()
+            toolBar.barStyle = UIBarStyle.Default
+            toolBar.translucent = true
+            toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+            toolBar.sizeToFit()
+            let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(HotelSearchViewController.doneDateSelection(_:)))
+            let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(HotelSearchViewController.calcelDateSelection(_:)))
+            toolBar.setItems([cancelButton, doneButton], animated: false)
+            toolBar.userInteractionEnabled = true
+            
+            textField.inputAccessoryView = toolBar
+            
+            datePicker.datePickerMode = .Date
+            if(textField == checkinTextField){
+                currentActiveTextField = checkinTextField
+                checkinTextField.inputView = datePicker
+                datePicker.addTarget(self, action: #selector(HotelSearchViewController.checkinDateChanged(_:)), forControlEvents: .ValueChanged)
+            }else if(textField == checkoutTextField){
+                currentActiveTextField = checkoutTextField
+                checkoutTextField.inputView = datePicker
+                datePicker.addTarget(self, action: #selector(HotelSearchViewController.checkoutDateChanged(_:)), forControlEvents: .ValueChanged)
+            }
         }
-       
+        
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool{
+        textField.resignFirstResponder()
+        return true
     }
     
     func doneDateSelection(sender: AnyObject){
@@ -85,13 +101,13 @@ class HotelSearchViewController : UIViewController, CLLocationManagerDelegate, U
     
     func checkinDateChanged(sender: UIDatePicker){
         let formater = NSDateFormatter()
-        formater.dateStyle = .MediumStyle
+        formater.dateFormat = "yyyy-MM-dd"
         checkinTextField.text = formater.stringFromDate(sender.date)
     }
     
     func checkoutDateChanged(sender: UIDatePicker){
         let formater = NSDateFormatter()
-        formater.dateStyle = .MediumStyle
+        formater.dateFormat = "yyyy-MM-dd"
         checkoutTextField.text = formater.stringFromDate(sender.date)
     }
     
