@@ -10,13 +10,13 @@ import UIKit
 import CoreLocation
 
 class MasterViewController: UITableViewController,NSURLSessionDataDelegate {
-
+    
     var buffer:NSMutableData!;
     var detailViewController: DetailViewController? = nil
     var objects = [AnyObject]()
     var searchResults = SearchResults()
     var myLocation : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 103.7352615, longitude: 103.7352615)
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.buffer = NSMutableData();
@@ -37,7 +37,7 @@ class MasterViewController: UITableViewController,NSURLSessionDataDelegate {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
-
+        
     }
     
     func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didReceiveData data: NSData) {
@@ -52,15 +52,15 @@ class MasterViewController: UITableViewController,NSURLSessionDataDelegate {
             self.tableView.reloadData()
             
             /*let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewControllerWithIdentifier("dineSearchNavController") as! UINavigationController
-            
-            
-            let toViewController1:MasterViewController =
-                vc.topViewController as! MasterViewController
-            
-            toViewController1.searchResults = self.searchResults;
-            toViewController1.myLocation = myLocation
-            self.presentViewController(vc, animated: true, completion: nil)*/
+             let vc = sb.instantiateViewControllerWithIdentifier("dineSearchNavController") as! UINavigationController
+             
+             
+             let toViewController1:MasterViewController =
+             vc.topViewController as! MasterViewController
+             
+             toViewController1.searchResults = self.searchResults;
+             toViewController1.myLocation = myLocation
+             self.presentViewController(vc, animated: true, completion: nil)*/
         }
         else {
             print("Error %@",error!.userInfo);
@@ -69,12 +69,12 @@ class MasterViewController: UITableViewController,NSURLSessionDataDelegate {
         }
         
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         print("viewWillAppear")
         super.viewWillAppear(animated)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -87,40 +87,36 @@ class MasterViewController: UITableViewController,NSURLSessionDataDelegate {
     }
     
     // MARK: - Segues
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = searchResults.nameArray[indexPath.row] as! NSString
-                
-                let naviController = segue.destinationViewController as! UINavigationController
-                let detailController = naviController.topViewController as! DetailViewController
-                print(detailController)
-                detailController.myHomeLocation = myLocation
-                detailController.restLocation = CLLocationCoordinate2D(latitude: searchResults.latArray[indexPath.row] as! Double, longitude: searchResults.lngArray[indexPath.row] as! Double)
-                detailController.object = object as String
-                detailController.searchLocation = searchResults.searchLocation
-            }
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            let object = searchResults.nameArray[indexPath.row] as! NSString
+            
+            let detailController = segue.destinationViewController as! DetailViewController
+            print(detailController)
+            detailController.myHomeLocation = myLocation
+            detailController.restLocation = CLLocationCoordinate2D(latitude: searchResults.latArray[indexPath.row] as! Double, longitude: searchResults.lngArray[indexPath.row] as! Double)
+            detailController.object = object as String
+            detailController.searchLocation = searchResults.searchLocation
         }
     }
-
+    
     // MARK: - Table View
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //print("Name.count::", searchResults.nameArray.count)
         return searchResults.nameArray.count
     }
-
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         print("Cell..",indexPath.row)
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! SimpleTableCell
         
-       cell.name.text = searchResults.nameArray[indexPath.row] as? String
+        cell.name.text = searchResults.nameArray[indexPath.row] as? String
         cell.address.text = searchResults.vicinityArray[indexPath.row] as? String
         //print(searchResults.photoArray[indexPath.row])
         if(searchResults.photoArray[indexPath.row] as! String != ""){
@@ -138,17 +134,17 @@ class MasterViewController: UITableViewController,NSURLSessionDataDelegate {
             cell.status.text = "Open now"
         }
         cell.backgroundColor = UIColor(patternImage: UIImage(named: "cell2.jpg")!)
-
+        
         //let object = names[indexPath.row] as! NSString
         //cell.textLabel!.text = searchResults.nameArray[indexPath.row] as! String
         return cell
     }
-
+    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return false
     }
-
+    
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             objects.removeAtIndex(indexPath.row)
@@ -223,9 +219,9 @@ class MasterViewController: UITableViewController,NSURLSessionDataDelegate {
     func roundToTen(x : Double) -> Int{
         return 10 * Int(round(x/10.0))
     }
-
+    
     @IBAction func cancel(segue:UIStoryboardSegue) {
     }
-        
+    
 }
 

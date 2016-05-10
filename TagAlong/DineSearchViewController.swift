@@ -58,12 +58,8 @@ class DineSearchViewController: UIViewController , CLLocationManagerDelegate{
         })
     }
 
-    
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let navController = segue.destinationViewController as! UINavigationController
-        let masterViewController = navController.topViewController as! MasterViewController
-        //masterViewController.searchResults = self.searchResults
+        let masterViewController = segue.destinationViewController as! MasterViewController
         masterViewController.myLocation = myLocation
     }
     
